@@ -1,0 +1,22 @@
+<div class="chat-container">
+    <h3>Atendimento on-line</h3>
+  
+    <div class="chat-box">
+      <div *ngFor="let message of messages">
+        <div *ngIf="message.sender === 'atendente'" class="message atendente">
+          <p>Atendente diz:</p>
+          <p>{{ message.text }}</p>
+        </div>
+        <div *ngIf="message.sender === 'voce'" class="message voce">
+          <p>Você diz:</p>
+          <p>{{ message.text }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="input-box">
+      <input [(ngModel)]="newMessage" placeholder="Digite sua mensagem..." />
+      <button (click)="sendMessage()">ENVIAR</button>
+    </div>
+  </div>
+  
